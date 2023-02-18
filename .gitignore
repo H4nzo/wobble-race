@@ -1,0 +1,49 @@
+# ============
+# OS Generated
+# ============
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+[Dd]esktop.ini
+
+# ===============
+# Unity Generated
+# ===============
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Ll]ogs/
+/[Bb]uild/
+/[Uu]UserSettings/
+*.pdb.meta
+*.pidb.meta
+sysinfo.txt
+
+# =============
+# IDE Generated
+# =============
+/[Ee]xported[Oo]bj/
+/.*/
+/_*/
+/*.csproj
+/*.leu
+/*.unityproj
+/*.sln
+/*.suo
+/*.tmp
+/*.user
+/*.userprefs
+/*.booproj
+/*.svd
+/*.opendb
+/*.VC.db
+*.pdb
+*.pidb
+
+# ======
+# Custom
+# ======
+
