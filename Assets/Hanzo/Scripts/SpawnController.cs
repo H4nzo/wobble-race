@@ -17,6 +17,8 @@ namespace Hanzo
         [SerializeField]
         bool isPlayerMoving = true;
 
+        public List<GameObject> playerList;
+
         void Awake()
         {
             if (Instance != null && Instance != this)
@@ -64,15 +66,30 @@ namespace Hanzo
             transform.position = newPos;
         }
 
-        public void SpawnPlayer(int playerCount)
+        public void SpawnPlayer(int playerCount, GatewayType gatewayType)
         {
-            //Spawn Players inside Player Child
-            for (int i = 0; i < playerCount; i++)
+            if (gatewayType == GatewayType.additionType)
             {
-                Instantiate(PlayerPrefab, PlayerPosition(), Quaternion.identity, transform);
+                //Spawn Players inside Player Child
+                for (int i = 0; i < playerCount; i++)
+                {
+                    GameObject NewPlayerGO = Instantiate(PlayerPrefab, PlayerPosition(), Quaternion.identity, transform);
+                    playerList.Add(NewPlayerGO);
+                }
             }
+            else if (gatewayType == GatewayType.multiplyType)
+            {
+                int newPlayerCount = (playerList.Count * playerCount) - playerList.Count;
 
+                for (int i = 0; i < newPlayerCount; i++)
+                {
+                    GameObject newPlayerGO = Instantiate(PlayerPrefab, PlayerPosition(), Quaternion.identity);
+                    playerList.Add(newPlayerGO);
+                }
+
+            }
         }
+
 
 
         public Vector3 PlayerPosition()
@@ -91,5 +108,6 @@ namespace Hanzo
             }
         }
     }
-
 }
+
+
