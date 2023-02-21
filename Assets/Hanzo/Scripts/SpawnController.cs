@@ -83,7 +83,7 @@ namespace Hanzo
 
                 for (int i = 0; i < newPlayerCount; i++)
                 {
-                    GameObject newPlayerGO = Instantiate(PlayerPrefab, PlayerPosition(), Quaternion.identity);
+                    GameObject newPlayerGO = Instantiate(PlayerPrefab, PlayerPosition(), Quaternion.identity, transform);
                     playerList.Add(newPlayerGO);
                 }
 

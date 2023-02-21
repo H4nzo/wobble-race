@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &205346764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1595433333362844639, guid: d8dfaa87cff03f142890cae8f611cffb, type: 3}
+  m_PrefabInstance: {fileID: 231563000390783262}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &242453408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 590270780074763058, guid: c7af48eae125c2e47a2bfc02bcca6e97, type: 3}
+      propertyPath: gatewayType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4380063760168740166, guid: c7af48eae125c2e47a2bfc02bcca6e97, type: 3}
       propertyPath: m_Name
       value: GateContainer
@@ -177,6 +186,14 @@ PrefabInstance:
     - target: {fileID: 6464548422120299756, guid: c7af48eae125c2e47a2bfc02bcca6e97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395282911433317966, guid: c7af48eae125c2e47a2bfc02bcca6e97, type: 3}
+      propertyPath: gatewayType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8395282911433317966, guid: c7af48eae125c2e47a2bfc02bcca6e97, type: 3}
+      propertyPath: gateValue
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7af48eae125c2e47a2bfc02bcca6e97, type: 3}
@@ -609,6 +626,8 @@ MonoBehaviour:
   hSpeed: 0
   PlayerPrefab: {fileID: 1595433333362844639, guid: d8dfaa87cff03f142890cae8f611cffb, type: 3}
   isPlayerMoving: 1
+  playerList:
+  - {fileID: 205346764}
 --- !u!65 &815428230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -912,24 +931,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1503218422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8723946097758545392, guid: c7af48eae125c2e47a2bfc02bcca6e97, type: 3}
-  m_PrefabInstance: {fileID: 242453408}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1503218423
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503218422}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.7135277, y: 1.6055231, z: 0.59422684}
-  m_Center: {x: -2.5362372, y: 1.2072384, z: -0.011669159}
 --- !u!1 &1511344092
 GameObject:
   m_ObjectHideFlags: 0

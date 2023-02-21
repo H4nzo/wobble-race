@@ -19,7 +19,10 @@ namespace Hanzo
 
 
         bool isGatePassed = false;
-        // SpawnController spawnController;
+        
+        GateContainerController gateContainerController;
+
+
         public GameObject PlayerPrefabSpawner;
 
 
@@ -50,11 +53,11 @@ namespace Hanzo
             switch (gatewayType)
             {
                 case GatewayType.multiplyType:
-                    gateText.text = "x"+gateValue.ToString();
+                    gateText.text = "x" +gateValue.ToString();
                     break;
                 
                 case GatewayType.additionType:
-                    gateText.text = "+"+gateValue.ToString();
+                    gateText.text = "+" +gateValue.ToString();
                     break;
                 
                 default:

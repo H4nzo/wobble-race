@@ -487,6 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateValue: 3
   gateText: {fileID: 1935784800772460164}
+  gatewayType: 1
   PlayerPrefabSpawner: {fileID: 1595433333362844639, guid: d8dfaa87cff03f142890cae8f611cffb, type: 3}
 --- !u!1 &4380063760168740166
 GameObject:
@@ -1100,6 +1101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gateValue: 2
   gateText: {fileID: 2590556778493472316}
+  gatewayType: 0
   PlayerPrefabSpawner: {fileID: 1595433333362844639, guid: d8dfaa87cff03f142890cae8f611cffb, type: 3}
 --- !u!1 &8806179289902659325
 GameObject:
