@@ -19,7 +19,7 @@ namespace Hanzo
 
 
         bool isGatePassed = false;
-        
+
         GateContainerController gateContainerController;
 
 
@@ -30,6 +30,7 @@ namespace Hanzo
         void Awake()
         {
             PlayerPrefabSpawner = GameObject.Find("PlayerSpawner");
+            gateContainerController = transform.parent.gameObject.GetComponent<GateContainerController>();
         }
 
        
@@ -44,6 +45,7 @@ namespace Hanzo
             {
                 isGatePassed = true;
                 SpawnController.Instance.SpawnPlayer(gateValue, gatewayType);
+                gateContainerController.CloseGate();
                 Destroy(this.gameObject);
             }
         }

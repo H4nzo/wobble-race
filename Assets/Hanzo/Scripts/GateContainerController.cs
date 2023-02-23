@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class GateContainerController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    // public BoxCollider[] gates;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+   
+    
     public void CloseGate()
     {
+        // foreach (var g in gates)
+        // {
+        //     g.enabled = false;
+        // }
         for (int i = 0; i < transform.childCount; i++)
         {
             if (transform.GetChild(i) != null)
