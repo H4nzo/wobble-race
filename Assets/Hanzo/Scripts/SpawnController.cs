@@ -107,6 +107,12 @@ namespace Hanzo
                 isPlayerMoving = false;
             }
         }
+
+        public void CopGotKilled(GameObject copGO)
+        {
+                playerList.Remove(copGO);
+                Destroy(copGO);
+        }
     }
 }
 

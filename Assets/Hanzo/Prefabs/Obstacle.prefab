@@ -1528,6 +1528,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8553395874387871465}
   - component: {fileID: 5309412157892556853}
+  - component: {fileID: 3064927077027915500}
+  - component: {fileID: 4928708165994947245}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -1572,6 +1574,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!65 &3064927077027915500
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8553395874387871464}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.1472273, y: 1, z: 1}
+  m_Center: {x: 0.056021214, y: 0, z: 0}
+--- !u!114 &4928708165994947245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8553395874387871464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff9835251dca43b39aa6f2aca31a2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8553395874439798758
 GameObject:
   m_ObjectHideFlags: 0
