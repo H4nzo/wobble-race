@@ -110,9 +110,27 @@ namespace Hanzo
 
         public void CopGotKilled(GameObject copGO)
         {
-                playerList.Remove(copGO);
-                Destroy(copGO);
+            playerList.Remove(copGO);
+            Destroy(copGO);
         }
+
+        public void MobDetected(GameObject target)
+        {
+            isPlayerMoving = !true;
+            LookAtEnemy(target);
+        }
+
+        private void LookAtEnemy(GameObject target)
+        {
+            // Vector3 dir = target.transform.position - transform.position;
+            Vector3 dir = transform.position - target.transform.position ;
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+            lookRotation.x = 0;
+            lookRotation.z = 0;
+            transform.rotation =lookRotation;
+        }
+
+
     }
 }
 
