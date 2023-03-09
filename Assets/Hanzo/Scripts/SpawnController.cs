@@ -112,6 +112,7 @@ namespace Hanzo
         {
             playerList.Remove(copGO);
             Destroy(copGO);
+            StartShootingAnim();
         }
 
         public void MobDetected(GameObject target)
@@ -144,6 +145,23 @@ namespace Hanzo
         void MovePlayer()
         {
             isPlayerMoving = true;
+            StartRunningAnim();
+        }
+
+        void StartShootingAnim(){
+            for (int i = 0; i < playerList.Count; i++)
+            {
+                PlayerController cop = playerList[i].GetComponent<PlayerController>();
+                cop.ShootAnim();
+            }
+        }
+
+         void StartRunningAnim(){
+            for (int i = 0; i < playerList.Count; i++)
+            {
+                PlayerController cop = playerList[i].GetComponent<PlayerController>();
+                cop.RunAnim();
+            }
         }
 
 
