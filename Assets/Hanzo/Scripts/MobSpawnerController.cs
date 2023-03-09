@@ -76,6 +76,19 @@ namespace Hanzo
             transform.rotation = lookRot;
         }
 
+        public void MobAttackCop(GameObject cop, GameObject mobGO)
+        {
+            mobs.Remove(mobGO);
+            CheckMobCount();
+            spawnController.CopGotKilled(cop);
+        }
+
+        void CheckMobCount()
+        {
+            if(mobs.Count <= 0)
+                spawnController.AllMobsKilled();
+        }
+
 
     }
 
