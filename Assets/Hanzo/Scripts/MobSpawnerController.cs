@@ -60,7 +60,7 @@ namespace Hanzo
             if (other.CompareTag("Player"))
             {
                 GetComponent<BoxCollider>().enabled = false;
-                spawnController.MobDetected(other.gameObject);
+                spawnController.MobDetected(gameObject);
                 LookAtPlayer(other.gameObject);
                 isMobAttack = true;
             }
