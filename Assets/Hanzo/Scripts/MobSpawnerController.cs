@@ -12,6 +12,8 @@ namespace Hanzo
         SpawnController spawnController;
         GameObject playerSpawnerGo;
 
+        public bool isMobAttack = true;
+
 
         private void Awake()
         {
@@ -37,6 +39,9 @@ namespace Hanzo
             {
                 Quaternion mobRot = Quaternion.Euler(new Vector3(0, 180, 0));
                 GameObject mobGO = Instantiate(mob, GetMobPosition(), mobRot, transform);
+                MobController mobScript = playerSpawnerGo.GetComponent<MobController>();
+                mobScript.playerSpawnerGo = playerSpawnerGo;
+                mobScript.mobSpawnerController = this;
                 mobs.Add(mobGO);
             }
 
@@ -56,6 +61,7 @@ namespace Hanzo
                 GetComponent<BoxCollider>().enabled = false;
                 spawnController.MobDetected(other.gameObject);
                 LookAtPlayer(other.gameObject);
+                isMobAttack = true;
             }
         }
 
