@@ -856,6 +856,7 @@ GameObject:
   - component: {fileID: 1076093111315202278}
   - component: {fileID: 516449413872603109}
   - component: {fileID: 632953114692472241}
+  - component: {fileID: -6159350358020454302}
   m_Layer: 0
   m_Name: Mob
   m_TagString: Untagged
@@ -931,6 +932,20 @@ CapsuleCollider:
   m_Height: 3.3081162
   m_Direction: 1
   m_Center: {x: 0.003463589, y: 1.5340575, z: 0}
+--- !u!114 &-6159350358020454302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6000185051730247718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5cf058f417a48e0bb5df89fdacf444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpawnerGo: {fileID: 0}
+  mobSpawnerController: {fileID: 0}
 --- !u!1 &6744909180574498609
 GameObject:
   m_ObjectHideFlags: 0
