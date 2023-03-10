@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Finish Line
   - PlayerSpawner
+  - Bullet
   layers:
   - Default
   - TransparentFX

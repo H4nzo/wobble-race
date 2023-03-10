@@ -6,19 +6,19 @@ namespace Hanzo
 {
     public class ObstacleController : MonoBehaviour
 {
-    SpawnController spawnController;
+   
     public GameObject playerSpawnerGO;
 
     private void Start() {
         playerSpawnerGO = GameObject.FindGameObjectWithTag("PlayerSpawner");
-        spawnController = playerSpawnerGO.GetComponent<SpawnController>();
+        
     }
 
 
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")){
             // Destroy(other.gameObject);
-            spawnController.CopGotKilled(other.gameObject);
+            SpawnController.Instance.CopGotKilled(other.gameObject);
         }
     }
 }

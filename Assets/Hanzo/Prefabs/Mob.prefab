@@ -946,6 +946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpawnerGo: {fileID: 0}
   mobSpawnerController: {fileID: 0}
+  isMobAlive: 0
 --- !u!1 &6744909180574498609
 GameObject:
   m_ObjectHideFlags: 0

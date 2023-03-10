@@ -64,6 +64,7 @@ namespace Hanzo
             newXValue = Mathf.Clamp(newXValue, -maxXposition, maxXposition);
             Vector3 newPos = new Vector3(newXValue, transform.position.y, transform.position.z + Time.deltaTime * speed);
             transform.position = newPos;
+
         }
 
         public void SpawnPlayer(int playerCount, GatewayType gatewayType)
@@ -96,7 +97,7 @@ namespace Hanzo
         {
             Vector3 position = Random.insideUnitSphere * 0.1f;
             Vector3 newPos = transform.position + position;
-            newPos.y *= 0f;
+            newPos.y *= 0;
             return newPos;
         }
 
@@ -104,7 +105,8 @@ namespace Hanzo
         {
             if (other.CompareTag("Finish Line"))
             {
-                isPlayerMoving = false;
+                // isPlayerMoving = false;
+                StopPlayer();
             }
         }
 
@@ -112,13 +114,22 @@ namespace Hanzo
         {
             playerList.Remove(copGO);
             Destroy(copGO);
-            StartShootingAnim();
+            DetectCopCount();
+
+        }
+
+        void DetectCopCount(){
+            if(playerList.Count <= 0)
+            {
+               StopPlayer();
+            }
         }
 
         public void MobDetected(GameObject target)
         {
             isPlayerMoving = !true;
             LookAtEnemy(target);
+            StartShootingAnim();
         }
 
         private void LookAtEnemy(GameObject target)
@@ -140,27 +151,35 @@ namespace Hanzo
         {
             LookFoward();
             MovePlayer();
+
         }
 
         void MovePlayer()
         {
             isPlayerMoving = true;
             StartRunningAnim();
+
         }
 
-        void StartShootingAnim(){
+        void StopPlayer(){
+            isPlayerMoving = false;
+        }
+
+        void StartShootingAnim()
+        {
             for (int i = 0; i < playerList.Count; i++)
             {
                 PlayerController cop = playerList[i].GetComponent<PlayerController>();
-                cop.ShootAnim();
+                cop.StartShooting();
             }
         }
 
-         void StartRunningAnim(){
+        void StartRunningAnim()
+        {
             for (int i = 0; i < playerList.Count; i++)
             {
                 PlayerController cop = playerList[i].GetComponent<PlayerController>();
-                cop.RunAnim();
+                cop.StopShooting();
             }
         }
 

@@ -29,6 +29,15 @@ namespace Hanzo
 
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Bullet"))
+            {
+                mobSpawnerController.MobGotShot(gameObject);
+                Destroy(other.gameObject);
+            }
+        }
+
         private void OnCollisionEnter(Collision col)
         {
             if (col.gameObject.CompareTag("Player") && isMobAlive == true)

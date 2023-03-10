@@ -9,7 +9,7 @@ namespace Hanzo
         public GameObject mob;
         public List<GameObject> mobs = new List<GameObject>();
 
-        SpawnController spawnController;
+        
         GameObject playerSpawnerGo;
 
         public bool isMobAttack = false;
@@ -19,7 +19,7 @@ namespace Hanzo
         {
             isMobAttack = false;
             playerSpawnerGo = GameObject.FindGameObjectWithTag("PlayerSpawner");
-            spawnController = playerSpawnerGo.GetComponent<SpawnController>();
+        
         }
 
         // Start is called before the first frame update
@@ -60,7 +60,7 @@ namespace Hanzo
             if (other.CompareTag("Player"))
             {
                 GetComponent<BoxCollider>().enabled = false;
-                spawnController.MobDetected(gameObject);
+                SpawnController.Instance.MobDetected(gameObject);
                 LookAtPlayer(other.gameObject);
                 isMobAttack = true;
             }
@@ -80,13 +80,20 @@ namespace Hanzo
         {
             mobs.Remove(mobGO);
             CheckMobCount();
-            spawnController.CopGotKilled(cop);
+           SpawnController.Instance.CopGotKilled(cop);
+        }
+
+        public void MobGotShot(GameObject theMob)
+        {
+                mobs.Remove(theMob);
+                Destroy(theMob);
+                CheckMobCount();
         }
 
         void CheckMobCount()
         {
-            if(mobs.Count <= 0)
-                spawnController.AllMobsKilled();
+            if (mobs.Count <= 0)
+               SpawnController.Instance.AllMobsKilled();
         }
 
 
