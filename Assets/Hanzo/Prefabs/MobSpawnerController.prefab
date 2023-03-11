@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: MobSpawnerController
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mob: {fileID: 6000185051730247718, guid: 9c42509e1b5a44444b467edc6181ec7a, type: 3}
   mobs: []
+  isMobAttack: 0
+  MobCount: 3
 --- !u!65 &1607192587531903155
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54,8 +56,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7986331445091897761}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7, y: 1, z: 6}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10.136575, y: 4.99, z: 13.295023}
+  m_Center: {x: 1.5682878, y: 0, z: -3.6475115}

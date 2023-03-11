@@ -14,8 +14,8 @@ namespace Hanzo
         float maxXposition = 4.10f;
         public GameObject PlayerPrefab;
 
-        [SerializeField]
-        bool isPlayerMoving = true;
+        // [SerializeField]
+        bool isPlayerMoving = false;
 
         public List<GameObject> playerList;
 
@@ -76,6 +76,7 @@ namespace Hanzo
                 {
                     GameObject NewPlayerGO = Instantiate(PlayerPrefab, PlayerPosition(), Quaternion.identity, transform);
                     playerList.Add(NewPlayerGO);
+                    
                 }
             }
             else if (gatewayType == GatewayType.multiplyType)
@@ -106,6 +107,8 @@ namespace Hanzo
             if (other.CompareTag("Finish Line"))
             {
                 // isPlayerMoving = false;
+                GameManager.instance.ShowWinPanel();
+                GameObject.Find("Main Camera").GetComponent<CameraController>().enabled = false;
                 StopPlayer();
             }
         }
@@ -122,12 +125,13 @@ namespace Hanzo
             if(playerList.Count <= 0)
             {
                StopPlayer();
+               GameManager.instance.ShowFailPanel();
             }
         }
 
         public void MobDetected(GameObject target)
         {
-            isPlayerMoving = !true;
+            isPlayerMoving = false;
             LookAtEnemy(target);
             StartShootingAnim();
         }
@@ -154,7 +158,7 @@ namespace Hanzo
 
         }
 
-        void MovePlayer()
+        public void MovePlayer()
         {
             isPlayerMoving = true;
             StartRunningAnim();
@@ -163,6 +167,11 @@ namespace Hanzo
 
         void StopPlayer(){
             isPlayerMoving = false;
+           GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach (var playerAnim in players)
+            {
+                playerAnim.GetComponent<Animator>().Play("Idle");
+            }
         }
 
         void StartShootingAnim()

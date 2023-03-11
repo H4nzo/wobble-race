@@ -13,6 +13,7 @@ namespace Hanzo
         GameObject playerSpawnerGo;
 
         public bool isMobAttack = false;
+        public int MobCount = 3;
 
 
         private void Awake()
@@ -25,7 +26,7 @@ namespace Hanzo
         // Start is called before the first frame update
         void Start()
         {
-            SpawnMob(3);
+            SpawnMob(MobCount);
         }
 
         // Update is called once per frame
