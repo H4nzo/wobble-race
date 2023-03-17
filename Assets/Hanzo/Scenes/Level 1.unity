@@ -1157,7 +1157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &646690822
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2073,7 +2073,7 @@ GameObject:
   - component: {fileID: 854579415}
   - component: {fileID: 854579414}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2145,7 +2145,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1633745510}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3208,7 +3208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1606158962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3615,7 +3615,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Tap To \nPlay"
+  m_Text: 'NEXT
+
+    LEVEL'
 --- !u!222 &1827027782
 CanvasRenderer:
   m_ObjectHideFlags: 0

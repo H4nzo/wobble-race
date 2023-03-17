@@ -13,6 +13,7 @@ namespace Hanzo
         GameObject playerSpawnerGo;
 
         public bool isMobAttack = false;
+        [HideInInspector]
         public int MobCount = 3;
 
 
@@ -26,6 +27,7 @@ namespace Hanzo
         // Start is called before the first frame update
         void Start()
         {
+            MobCount = Random.Range(3, 6);
             SpawnMob(MobCount);
         }
 
