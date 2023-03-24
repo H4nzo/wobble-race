@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 using Hanzo;
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
+ #region  Gameplay manager
+ 
+         [SerializeField]
     GameObject menuPanel, failPanel, winPanel;
     public static GameManager instance;
 
@@ -53,4 +55,6 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
+ #endregion
+   
 }

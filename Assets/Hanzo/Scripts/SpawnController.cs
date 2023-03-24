@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 namespace Hanzo
 {
@@ -18,6 +20,18 @@ namespace Hanzo
         bool isPlayerMoving = false;
 
         public List<GameObject> playerList;
+        [SerializeField]private TextMeshProUGUI scoreText;
+
+        private int _score;
+        internal int Score
+        {
+            get { return _score; }
+            set { _score = value; }
+        }
+
+        const string HIGHSCORE = "HIGH_SCORE";
+        const string SAVEDLEVEL = "SAVED_LEVEL";
+        
 
         void Awake()
         {
@@ -34,6 +48,9 @@ namespace Hanzo
         void Start()
         {
             // SpawnPlayer(3);
+            Score = 0;
+            scoreText = GameObject.Find("scoreText").GetComponent<TextMeshProUGUI>();
+            scoreText.text = Score.ToString();
 
         }
 
@@ -65,6 +82,8 @@ namespace Hanzo
             Vector3 newPos = new Vector3(newXValue, transform.position.y, transform.position.z + Time.deltaTime * speed);
             transform.position = newPos;
 
+            scoreText.text = Score.ToString();
+
         }
 
         public void SpawnPlayer(int playerCount, GatewayType gatewayType)
@@ -76,6 +95,7 @@ namespace Hanzo
                 {
                     GameObject NewPlayerGO = Instantiate(PlayerPrefab, PlayerPosition(), Quaternion.identity, transform);
                     playerList.Add(NewPlayerGO);
+                    
                     
                 }
             }
@@ -90,6 +110,8 @@ namespace Hanzo
                 }
 
             }
+            Score = playerList.Count;
+            
         }
 
 
@@ -110,6 +132,10 @@ namespace Hanzo
                 GameManager.instance.ShowWinPanel();
                 GameObject.Find("Main Camera").GetComponent<CameraController>().enabled = false;
                 StopPlayer();
+                int highscore = PlayerPrefs.GetInt(HIGHSCORE) + Score;
+                PlayerPrefs.SetInt(HIGHSCORE, highscore);
+                int levelIndex = SceneManager.GetActiveScene().buildIndex;
+                PlayerPrefs.SetInt(SAVEDLEVEL,levelIndex);
             }
         }
 
@@ -122,6 +148,8 @@ namespace Hanzo
         }
 
         void DetectCopCount(){
+            Score = playerList.Count;
+
             if(playerList.Count <= 0)
             {
                StopPlayer();
