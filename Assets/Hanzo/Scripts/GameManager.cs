@@ -5,26 +5,40 @@ using UnityEngine.SceneManagement;
 using Hanzo;
 public class GameManager : MonoBehaviour
 {
- #region  Gameplay manager
- 
-         [SerializeField]
+    #region  Gameplay manager
+
+    [SerializeField]
     GameObject menuPanel, failPanel, winPanel;
     public static GameManager instance;
 
+    const int LAST_LEVEL = 20;
+
 
     // Start is called before the first frame update
-   void Awake()
-{
-    if (instance != null && instance != this)
+    // void Awake()
+    // {
+    //     if (instance != null && instance != this)
+    //     {
+    //         Destroy(this.gameObject);
+    //     }
+    //     else
+    //     {
+    //         instance = this;
+    //         DontDestroyOnLoad(this.gameObject);
+    //     }
+    // }
+
+    void Awake()
     {
-        Destroy(this.gameObject);
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
     }
-    else
-    {
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
-    }
-}
 
 
     // Update is called once per frame
@@ -52,13 +66,32 @@ public class GameManager : MonoBehaviour
     public void ShowWinPanel()
     {
         winPanel.SetActive(true);
-         int levelIndex = SceneManager.GetActiveScene().buildIndex;
-                PlayerPrefs.SetInt("SAVED_LEVEL",levelIndex);
+        int levelIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("SAVED_LEVEL", levelIndex);
     }
 
-    public void LoadNextLevel(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    public void LoadNextLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == LAST_LEVEL)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
     }
- #endregion
-   
+
+    public void PrevLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void Exit()
+    {
+        GameObject.FindObjectOfType<PauseScript>().Quit();
+    }
+    #endregion
+
 }
