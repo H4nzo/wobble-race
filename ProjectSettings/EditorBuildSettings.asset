@@ -6,6 +6,66 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Hanzo/Scenes/mainMenu.unity
+    guid: a134db4252efc40a58beda76d79dee1b
+  - enabled: 1
     path: Assets/Hanzo/Scenes/Level 1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 2.unity
+    guid: 984a835c09a9c4ce0966173ea9090915
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 3.unity
+    guid: 7c64714e813384a6b8a1a183a44d4fdf
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 4.unity
+    guid: 4367e48f211894af79593dd468d99613
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 5.unity
+    guid: 08ff7ac9a5fde426d817b9942aaf635f
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 6.unity
+    guid: 27962a3343b1a413abde92d6285c566c
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 7.unity
+    guid: e118febf9ab04454d947cd0d0b72365e
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 8.unity
+    guid: 2f07acc364d8b43e5899b13add38666f
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 9.unity
+    guid: 6d2292ac0d81e44d4b8fbc9e500d7129
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 10.unity
+    guid: b65eb162e0dea4b73848863182b97adf
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 11.unity
+    guid: b7d2b514f7c4142f1919d76f76fbd824
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 12.unity
+    guid: 3e95d98a5c0a943b8a49f2ed53aafede
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 13.unity
+    guid: 45e34f9c2003c4695a65f96221c38312
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 14.unity
+    guid: d55a96dc8190b4a7b8fa8e48eb24a69d
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 15.unity
+    guid: daedc1f21fd184eccaeb81c1139757a3
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 16.unity
+    guid: 807948f9bbe924506bcf44f149c5f379
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 17.unity
+    guid: 14647e8db75d847a5bb6f2a7dbaef26d
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 18.unity
+    guid: 53d0ffb9544194e1e92e373fb230dba9
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 19.unity
+    guid: d7c8ac6ced914436c94d148057538215
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/Level 20.unity
+    guid: 885880a547ddd4009969178d96ec3501
   m_configObjects: {}

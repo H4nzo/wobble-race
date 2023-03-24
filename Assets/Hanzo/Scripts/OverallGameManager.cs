@@ -22,18 +22,22 @@ namespace Hanzo.GameController
         {
             if (instance != null && instance != this)
             {
-                Destroy(this);
+                Destroy(this.gameObject);
             }
             else
             {
                 instance = this;
+                DontDestroyOnLoad(this.gameObject);
             }
         }
+
 
 
         // Start is called before the first frame update
         void Start()
         {
+            PlayerPrefs.DeleteAll();
+            
             int highscore = PlayerPrefs.GetInt(HIGH_SCORE);
             highScoreText = GameObject.Find("Text_highScore").GetComponent<TextMeshProUGUI>();
             highScoreText.text = highscore.ToString();
@@ -42,7 +46,7 @@ namespace Hanzo.GameController
         // Update is called once per frame
         void Update()
         {
-            
+
 
         }
 
@@ -54,7 +58,8 @@ namespace Hanzo.GameController
 
         public void Continue()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + PlayerPrefs.GetInt(SAVED_LEVEL));
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //PlayerPrefs.GetInt(SAVED_LEVEL);
         }
 
         public void Leaderboard()

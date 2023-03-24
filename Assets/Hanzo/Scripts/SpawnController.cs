@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 namespace Hanzo
@@ -134,8 +133,7 @@ namespace Hanzo
                 StopPlayer();
                 int highscore = PlayerPrefs.GetInt(HIGHSCORE) + Score;
                 PlayerPrefs.SetInt(HIGHSCORE, highscore);
-                int levelIndex = SceneManager.GetActiveScene().buildIndex;
-                PlayerPrefs.SetInt(SAVEDLEVEL,levelIndex);
+               
             }
         }
 

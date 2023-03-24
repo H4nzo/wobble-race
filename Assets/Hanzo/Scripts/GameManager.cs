@@ -13,17 +13,19 @@ public class GameManager : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Awake()
+   void Awake()
+{
+    if (instance != null && instance != this)
     {
-        if (instance != null && instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            instance = this;
-        }
+        Destroy(this.gameObject);
     }
+    else
+    {
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+    }
+}
+
 
     // Update is called once per frame
     void Update()
@@ -50,6 +52,8 @@ public class GameManager : MonoBehaviour
     public void ShowWinPanel()
     {
         winPanel.SetActive(true);
+         int levelIndex = SceneManager.GetActiveScene().buildIndex;
+                PlayerPrefs.SetInt("SAVED_LEVEL",levelIndex);
     }
 
     public void LoadNextLevel(){
