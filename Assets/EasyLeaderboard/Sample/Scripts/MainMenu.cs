@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+
+/*GGQVliYnBIREIycWRjT2hTZAXNHUV9ITmlaVzlSNVo5SkVsQko5NHB1MmhESlpKRnFEelYzUTgtejA0MFdDUm9iajRTcHRoazdWWnBWRmlmNlBiM055MEtJc1Vib3JUTkpaS1dmM1R3RThzLWVYRkdzWTRiZAER5ZAENKX2R3SUtSTzZAwZAwZDZD
+*/
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private Text _nameText;
+    [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private Image _profileImage;
     [SerializeField] private Sprite _noProfileSprite;
-    [SerializeField] private GameObject _postLoginActions;
-    [SerializeField] private Text _scoreText;
+   // [SerializeField] private GameObject _postLoginActions;
+    [SerializeField] private TextMeshProUGUI _scoreText;
+    [SerializeField] private GameObject LoginBTN, LogOutBTN;
 
     private void Start()
     {
@@ -18,7 +23,7 @@ public class MainMenu : MonoBehaviour
         {
             _nameText.text = FacebookAndPlayFabManager.Instance.FacebookUserName;
             _profileImage.sprite = FacebookAndPlayFabManager.Instance.FacebookUserPictureSprite;
-            _postLoginActions.SetActive(true);
+            // _postLoginActions.SetActive(true);
         }
     }
 
@@ -38,6 +43,8 @@ public class MainMenu : MonoBehaviour
             StartCoroutine(GetUserNameRoutine());
             StartCoroutine(GetUserPictureRoutine());
             StartCoroutine(WaitForPlayFabLogin());
+            
+
         });
     }
 
@@ -62,15 +69,19 @@ public class MainMenu : MonoBehaviour
     {
         yield return new WaitUntil(() => FacebookAndPlayFabManager.Instance.IsLoggedOnPlayFab);
 
-        _postLoginActions.SetActive(true);
+        // _postLoginActions.SetActive(true);
+        LoginBTN.SetActive(false);
+        LogOutBTN.SetActive(true);
     }
 
     public void Logout()
     {
         FacebookAndPlayFabManager.Instance.LogOutFacebook();
         _profileImage.sprite = _noProfileSprite;
-        _nameText.text = "My Facebook Name";
-        _postLoginActions.SetActive(false);
+        _nameText.text = "Offline";
+        // _postLoginActions.SetActive(false);
+        LoginBTN.SetActive(!false);
+        LogOutBTN.SetActive(!true);
     }
 
     public void PostScoreOnPlayFab()
@@ -78,13 +89,13 @@ public class MainMenu : MonoBehaviour
         if (string.IsNullOrEmpty(_scoreText.text))
             return;
 
-        var score = System.Convert.ToInt32(_scoreText.text);
-
+        var score = PlayerPrefs.GetInt("HIGH_SCORE");
         FacebookAndPlayFabManager.Instance.UpdateStat(Constants.LeaderboardName, score);
     }
 
     public void SeeLeaderboard()
     {
-        SceneManager.LoadScene(1);
+        PostScoreOnPlayFab();
+        SceneManager.LoadScene("02_LeaderboardMenu");
     }
 }

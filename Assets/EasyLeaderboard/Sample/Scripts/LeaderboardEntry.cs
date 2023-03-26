@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LeaderboardEntry : MonoBehaviour
 {
     public Image userPictureImage;
     public Image userPositionBox;
-    public Text userPositionText;
-    public Text userNameText;
-    public Text userScoreText;
+    public TextMeshProUGUI userPositionText;
+    public TextMeshProUGUI userNameText;
+    public TextMeshProUGUI userScoreText;
 
     [Header("First Places colors")]
     public Color golden;

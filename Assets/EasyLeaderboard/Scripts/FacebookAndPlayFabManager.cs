@@ -289,6 +289,7 @@ public class FacebookAndPlayFabManager : MonoSingleton<FacebookAndPlayFabManager
     /// <param name="successCallback">Action to be executed when the process is done correctly.</param>
     public void UpdateStat(string statisticName, int value, Action<UpdatePlayerStatisticsResult> successCallback = null)
     {
+        statisticName = "TroupeLeaderboard";
         if (!IsLoggedOnPlayFab)
         {
             Debug.LogError("EasyLeaderboard.UpdateStat => Not logged on PlayFab!");
@@ -342,6 +343,7 @@ public class FacebookAndPlayFabManager : MonoSingleton<FacebookAndPlayFabManager
     /// <param name="startPosition">Starting point to retrieve the statistic values.</param>
     public void GetLeaderboard(string statisticName, bool friendsOnly, int maxResultsCount, Action<GetLeaderboardResult> successCallback, int startPosition = 0)
     {
+        statisticName = "TroupeLeaderboard";
         if (!IsLoggedOnPlayFab)
         {
             Debug.LogError("EasyLeaderboard.GetLeaderboard => Not logged on PlayFab!");

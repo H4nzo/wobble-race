@@ -68,4 +68,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Hanzo/Scenes/Level 20.unity
     guid: 885880a547ddd4009969178d96ec3501
+  - enabled: 1
+    path: Assets/Hanzo/Scenes/02_LeaderboardMenu.unity
+    guid: 350ffa14bcfd03a42bff667e4228af2d
   m_configObjects: {}

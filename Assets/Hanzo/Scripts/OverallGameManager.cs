@@ -48,7 +48,8 @@ namespace Hanzo.GameController
         // Start is called before the first frame update
         void Start()
         {
-            PlayerPrefs.DeleteAll();
+             Time.timeScale = 1f;
+            // PlayerPrefs.DeleteAll();
             
             int highscore = PlayerPrefs.GetInt(HIGH_SCORE);
             highScoreText = GameObject.Find("Text_highScore").GetComponent<TextMeshProUGUI>();
