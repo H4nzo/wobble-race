@@ -360,7 +360,7 @@ public class FacebookAndPlayFabManager : MonoSingleton<FacebookAndPlayFabManager
             {
                 StatisticName = statisticName,
                 MaxResultsCount = maxResultsCount,
-                IncludeFacebookFriends = true,
+                ExternalPlatformFriends = ExternalFriendSources.Facebook,
                 StartPosition = startPosition
             };
 
