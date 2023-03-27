@@ -19,7 +19,7 @@ namespace Hanzo
         bool isPlayerMoving = false;
 
         public List<GameObject> playerList;
-        [SerializeField]private TextMeshProUGUI scoreText;
+        [SerializeField] private TextMeshProUGUI scoreText;
 
         private int _score;
         internal int Score
@@ -30,7 +30,11 @@ namespace Hanzo
 
         const string HIGHSCORE = "HIGH_SCORE";
         const string SAVEDLEVEL = "SAVED_LEVEL";
-        
+
+        public AudioClip popSound;
+        [SerializeField] GameObject camera;
+        public AudioSource source;
+
 
         void Awake()
         {
@@ -50,6 +54,10 @@ namespace Hanzo
             Score = 0;
             scoreText = GameObject.Find("scoreText").GetComponent<TextMeshProUGUI>();
             scoreText.text = Score.ToString();
+
+            camera = GameObject.Find("Main Camera");
+            source = camera.GetComponent<AudioSource>();
+            popSound = SoundManager.instance.sounds[1].clip;
 
         }
 
@@ -94,8 +102,8 @@ namespace Hanzo
                 {
                     GameObject NewPlayerGO = Instantiate(PlayerPrefab, PlayerPosition(), Quaternion.identity, transform);
                     playerList.Add(NewPlayerGO);
-                    
-                    
+
+
                 }
             }
             else if (gatewayType == GatewayType.multiplyType)
@@ -110,7 +118,13 @@ namespace Hanzo
 
             }
             Score = playerList.Count;
-            
+            source.PlayOneShot(popSound);
+
+            // GameObject smoke = Resources.Load<GameObject>("Smoke");
+            // Instantiate(smoke, transform.position, Quaternion.identity);
+           
+
+
         }
 
 
@@ -133,7 +147,7 @@ namespace Hanzo
                 StopPlayer();
                 int highscore = PlayerPrefs.GetInt(HIGHSCORE) + Score;
                 PlayerPrefs.SetInt(HIGHSCORE, highscore);
-               
+
             }
         }
 
@@ -145,13 +159,14 @@ namespace Hanzo
 
         }
 
-        void DetectCopCount(){
+        void DetectCopCount()
+        {
             Score = playerList.Count;
 
-            if(playerList.Count <= 0)
+            if (playerList.Count <= 0)
             {
-               StopPlayer();
-               GameManager.instance.ShowFailPanel();
+                StopPlayer();
+                GameManager.instance.ShowFailPanel();
             }
         }
 
@@ -191,9 +206,10 @@ namespace Hanzo
 
         }
 
-        void StopPlayer(){
+        void StopPlayer()
+        {
             isPlayerMoving = false;
-           GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             foreach (var playerAnim in players)
             {
                 playerAnim.GetComponent<Animator>().Play("Idle");

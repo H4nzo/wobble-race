@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
 namespace Hanzo
 {
     public enum GatewayType{multiplyType, additionType }
     public class GatewayController : MonoBehaviour
     {
+        
 
         public int gateValue;
 
@@ -37,12 +37,14 @@ namespace Hanzo
         void Start()
         {
             AddGateValue();
+          
         }
 
         void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
+               
                 isGatePassed = true;
                 SpawnController.Instance.SpawnPlayer(gateValue, gatewayType);
                 gateContainerController.CloseGate();
